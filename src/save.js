@@ -15,7 +15,7 @@ import { useBlockProps } from '@wordpress/block-editor';
  *
  * @return {Element} Element to render.
  */
-export default function save() {
+export default function Save() {
 	return (
 		<p { ...useBlockProps.save() }>
 			{ 'Wi Collapsible Social Links – hello from the saved content!' }

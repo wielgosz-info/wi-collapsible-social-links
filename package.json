@@ -1,7 +1,7 @@
 {
 	"name": "wi-collapsible-social-links",
 	"version": "0.1.0",
-	"description": "Example block scaffolded with Create Block tool.",
+	"description": "WI Collapsible Social Links block",
 	"author": "Urszula Wielgosz",
 	"license": "MIT",
 	"main": "build/index.js",

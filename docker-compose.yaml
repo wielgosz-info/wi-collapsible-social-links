@@ -2,7 +2,7 @@ version: '3.9'
 
 services:
   plugin:
-    image: wielgosz-info/wi-plugin:latest
+    image: wielgosz-info/wi-collapsible-social-links:latest
     build:
       context: .
       dockerfile: Dockerfile

@@ -17,6 +17,7 @@ import './style.scss';
 /**
  * Internal dependencies
  */
+import { CollapsibleSocialLinksIcon } from './icons/collapsible-social-links';
 import edit from './edit';
 import save from './save';
 import metadata from './block.json';
@@ -26,7 +27,9 @@ import metadata from './block.json';
  *
  * @see https://developer.wordpress.org/block-editor/reference-guides/block-api/block-registration/
  */
-registerBlockType( metadata.name, {
+registerBlockType(metadata.name, {
+	icon: CollapsibleSocialLinksIcon,
+
 	/**
 	 * @see ./edit.js
 	 */
@@ -36,4 +39,4 @@ registerBlockType( metadata.name, {
 	 * @see ./save.js
 	 */
 	save,
-} );
+});

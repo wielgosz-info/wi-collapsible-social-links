@@ -1,15 +1,61 @@
 {
   "$schema": "https://schemas.wp.org/trunk/block.json",
   "apiVersion": 3,
-  "name": "create-block/wi-collapsible-social-links",
+  "name": "wielgosz-info/wi-collapsible-social-links",
   "version": "0.1.0",
-  "title": "Wi Collapsible Social Links",
+  "title": "WI Collapsible Social Links",
   "category": "widgets",
   "icon": "share",
-  "description": "WI Collapsible Social Links block",
+  "description": "Wrapper around Social Links block to make them collapsible.",
   "example": {},
   "supports": {
-    "html": false
+    "html": false,
+    "color": {
+      "background": true,
+      "text": true
+    },
+    "spacing": {
+      "margin": true
+    }
+  },
+  "attributes": {
+    "buttonLabel": {
+      "type": "string",
+      "source": "text",
+      "selector": ".wp-block-wielgosz-info-wi-collapsible-social-links-button-label"
+    },
+    "buttonIcon": {
+      "type": "string",
+      "enum": [
+        "social-links"
+      ],
+      "default": "social-links"
+    },
+    "size": {
+      "type": "string",
+      "enum": [
+        "small",
+        "normal",
+        "large",
+        "huge"
+      ],
+      "default": "normal"
+    },
+    "horizontalBreakpoint": {
+      "type": "string",
+      "enum": [
+        "none",
+        "mobile",
+        "small",
+        "medium",
+        "large",
+        "xlarge",
+        "wide",
+        "huge",
+        "xhuge"
+      ],
+      "default": "medium"
+    }
   },
   "textdomain": "wi-collapsible-social-links",
   "editorScript": "file:./index.js",

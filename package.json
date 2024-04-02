@@ -2,8 +2,8 @@
 	"name": "wi-collapsible-social-links",
 	"version": "0.1.0",
 	"description": "Example block scaffolded with Create Block tool.",
-	"author": "The WordPress Contributors",
-	"license": "GPL-2.0-or-later",
+	"author": "Urszula Wielgosz",
+	"license": "MIT",
 	"main": "build/index.js",
 	"scripts": {
 		"build": "wp-scripts build",

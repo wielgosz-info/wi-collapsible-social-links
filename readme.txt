@@ -1,10 +1,10 @@
 === Wi Collapsible Social Links ===
-Contributors:      The WordPress Contributors
+Contributors:      Urszula Wielgosz
 Tags:              block
-Tested up to:      6.1
+Tested up to:      6.5
 Stable tag:        0.1.0
-License:           GPL-2.0-or-later
-License URI:       https://www.gnu.org/licenses/gpl-2.0.html
+License:           MIT
+License URI:       https://github.com/wielgosz-info/wi-collapsible-social-links/blob/main/LICENSE
 
 Example block scaffolded with Create Block tool.
 

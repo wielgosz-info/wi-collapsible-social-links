@@ -87,6 +87,7 @@
 	border-radius: 9994px;
 	line-height: 1;
 	transition: transform 0.1s ease;
+	fill: currentColor;
 
 	@include reduce-motion(transition);
 

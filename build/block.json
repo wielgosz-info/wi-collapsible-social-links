@@ -5,8 +5,8 @@
   "version": "0.1.0",
   "title": "Wi Collapsible Social Links",
   "category": "widgets",
-  "icon": "smiley",
-  "description": "Example block scaffolded with Create Block tool.",
+  "icon": "share",
+  "description": "WI Collapsible Social Links block",
   "example": {},
   "supports": {
     "html": false

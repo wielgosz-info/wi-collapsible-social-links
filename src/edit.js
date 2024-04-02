@@ -1,24 +1,6 @@
-/**
- * Retrieves the translation of text.
- *
- * @see https://developer.wordpress.org/block-editor/reference-guides/packages/packages-i18n/
- */
-import { __ } from '@wordpress/i18n';
+import { useBlockProps, useInnerBlocksProps } from '@wordpress/block-editor';
+import { getBlockDefaultClassName } from '@wordpress/blocks';
 
-/**
- * React hook that is used to mark the block wrapper element.
- * It provides all the necessary props like the class name.
- *
- * @see https://developer.wordpress.org/block-editor/reference-guides/packages/packages-block-editor/#useblockprops
- */
-import { useBlockProps } from '@wordpress/block-editor';
-
-/**
- * Lets webpack process CSS, SASS or SCSS files referenced in JavaScript files.
- * Those files can contain any CSS code that gets applied to the editor.
- *
- * @see https://www.npmjs.com/package/@wordpress/scripts#using-css
- */
 import './editor.scss';
 
 /**
@@ -29,13 +11,22 @@ import './editor.scss';
  *
  * @return {Element} Element to render.
  */
-export default function Edit() {
+export default function edit({name}) {
+	const defaultClassName = getBlockDefaultClassName(name);
+	const blockProps = useBlockProps();
+	const innerBlocksProps = useInnerBlocksProps(
+		{
+			className: `${defaultClassName}-content`,
+		},
+		{
+			template: [['core/social-links']],
+			templateLock: true,
+		}
+	);
+
 	return (
-		<p { ...useBlockProps() }>
-			{ __(
-				'Wi Collapsible Social Links – hello from the editor!',
-				'wi-collapsible-social-links'
-			) }
-		</p>
+		<div {...blockProps}>
+			<nav {...innerBlocksProps} />
+		</div>
 	);
 }

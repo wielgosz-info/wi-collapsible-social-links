@@ -2,7 +2,10 @@
 @import "~@wordpress/base-styles/mixins";
 
 @mixin horizontal {
+	--wi-collapsible-social-links--orientation: row;
 	--wi-collapsible-social-links--content-position--top: 0;
+	--wi-collapsible-social-links--content-position--right: auto;
+	--wi-collapsible-social-links--content-position--bottom: 0;
 	--wi-collapsible-social-links--content-position--left: 100%;
 	--wi-collapsible-social-links--content-space--horizontal: var(
 		--wi-collapsible-social-links--content-space
@@ -11,8 +14,9 @@
 }
 
 .wp-block-wielgosz-info-wi-collapsible-social-links {
+	--wi-collapsible-social-links--orientation: column;
 	--wi-collapsible-social-links--content-position--top: 100%;
-	--wi-collapsible-social-links--content-position--right: auto;
+	--wi-collapsible-social-links--content-position--right: 0;
 	--wi-collapsible-social-links--content-position--bottom: auto;
 	--wi-collapsible-social-links--content-position--left: 0;
 	--wi-collapsible-social-links--content-space: var(
@@ -110,6 +114,11 @@
 	&:hover {
 		transform: scale(1.1);
 	}
+
+	svg {
+		width: 1em;
+		height: 1em;
+	}
 }
 
 .wp-block-wielgosz-info-wi-collapsible-social-links-content {
@@ -120,4 +129,9 @@
 	left: var(--wi-collapsible-social-links--content-position--left);
 	margin: var(--wi-collapsible-social-links--content-space--vertical)
 		var(--wi-collapsible-social-links--content-space--horizontal);
+	display: flex;
+	flex-direction: var(--wi-collapsible-social-links--orientation);
+	justify-content: flex-start;
+	align-items: center;
+	flex-wrap: nowrap;
 }

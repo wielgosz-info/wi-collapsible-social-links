@@ -17,6 +17,7 @@
 		"@babel/core": "^7.24.3",
 		"@wordpress/base-styles": "^4.45.0",
 		"@wordpress/eslint-plugin": "^17.11.0",
+		"@wordpress/icons": "^9.46.0",
 		"@wordpress/prettier-config": "^3.11.0",
 		"@wordpress/scripts": "^27.5.0",
 		"@wordpress/stylelint-config": "^21.37.0",

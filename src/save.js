@@ -11,9 +11,9 @@ export default function save({ attributes }) {
 
 	return (
 		<div {...useBlockProps.save({
-			className: `is-horizontal-at-${attributes.horizontalBreakpoint}`,
+			className: attributes.horizontalBreakpoint,
 		})}>
-			<button className={`${defaultClassName}-button has-${attributes.size}-icon-size`}>
+			<button className={`${defaultClassName}-button ${attributes.size}`}>
 				<ButtonIcon className={`${defaultClassName}-button-icon`} />
 				<span className={`${defaultClassName}-button-label screen-reader-text`}>{attributes.buttonLabel || __('Social Links', 'wi-collapsible-social-links')}</span>
 			</button>

@@ -1,9 +1,10 @@
-/**
- * The following styles get applied inside the editor only.
- *
- * Replace them with your own styles or remove the file completely.
- */
-
 .wp-block-wielgosz-info-wi-collapsible-social-links-content {
+	// ensure it is easy to click and add icons
 	min-width: 50vw;
+	// always display horizontal in the editor
+	flex-direction: row;
+	top: 0;
+	left: 100%;
+	right: auto;
+	bottom: 0;
 }

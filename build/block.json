@@ -34,27 +34,27 @@
     "size": {
       "type": "string",
       "enum": [
-        "small",
-        "normal",
-        "large",
-        "huge"
+        "has-small-icon-size",
+        "has-normal-icon-size",
+        "has-large-icon-size",
+        "has-huge-icon-size"
       ],
-      "default": "normal"
+      "default": "has-normal-icon-size"
     },
     "horizontalBreakpoint": {
       "type": "string",
       "enum": [
-        "none",
-        "mobile",
-        "small",
-        "medium",
-        "large",
-        "xlarge",
-        "wide",
-        "huge",
-        "xhuge"
+        "",
+        "is-horizontal-at-mobile",
+        "is-horizontal-at-small",
+        "is-horizontal-at-medium",
+        "is-horizontal-at-large",
+        "is-horizontal-at-xlarge",
+        "is-horizontal-at-wide",
+        "is-horizontal-at-huge",
+        "is-horizontal-at-xhuge"
       ],
-      "default": "medium"
+      "default": "is-horizontal-at-medium"
     }
   },
   "textdomain": "wi-collapsible-social-links",

@@ -74,6 +74,22 @@
 			@include horizontal;
 		}
 	}
+
+	&.has-small-icon-size {
+		font-size: 1rem;
+	}
+
+	&.has-normal-icon-size {
+		font-size: 1.5rem;
+	}
+
+	&.has-large-icon-size {
+		font-size: 2.25rem;
+	}
+
+	&.has-huge-icon-size {
+		font-size: 3rem;
+	}
 }
 
 .wp-block-wielgosz-info-wi-collapsible-social-links-button {
@@ -92,24 +108,9 @@
 	line-height: 1;
 	transition: transform 0.1s ease;
 	fill: currentColor;
+	cursor: pointer;
 
 	@include reduce-motion(transition);
-
-	&.has-small-icon-size {
-		font-size: 1rem;
-	}
-
-	&.has-normal-icon-size {
-		font-size: 1.5rem;
-	}
-
-	&.has-large-icon-size {
-		font-size: 2.25rem;
-	}
-
-	&.has-huge-icon-size {
-		font-size: 3rem;
-	}
 
 	&:hover {
 		transform: scale(1.1);
@@ -134,4 +135,12 @@
 	justify-content: flex-start;
 	align-items: center;
 	flex-wrap: nowrap;
+
+	&[hidden] {
+		display: none;
+	}
+}
+
+.wp-block-wielgosz-info-wi-collapsible-social-links .wp-block-social-links-is-layout-flex {
+	flex-direction: var(--wi-collapsible-social-links--orientation);
 }

@@ -1,1 +1,1 @@
-console.log("Hello World! (from create-block-wi-collapsible-social-links block)");
+import*as t from"@wordpress/interactivity";var e={d:(t,o)=>{for(var r in o)e.o(o,r)&&!e.o(t,r)&&Object.defineProperty(t,r,{enumerable:!0,get:o[r]})},o:(t,e)=>Object.prototype.hasOwnProperty.call(t,e)};const o=(r={getContext:()=>t.getContext,store:()=>t.store},n={},e.d(n,r),n);var r,n;(0,o.store)("WICollapsibleSocialLinks",{actions:{toggle:()=>{const t=(0,o.getContext)();t.isOpen=!t.isOpen}}});

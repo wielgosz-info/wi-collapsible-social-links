@@ -11,6 +11,7 @@ import {
 } from '@wordpress/components';
 import { __ } from '@wordpress/i18n';
 import { check } from '@wordpress/icons';
+import classnames from 'classnames';
 
 import icons from './icons';
 
@@ -59,10 +60,10 @@ function OptionsDropdown({ name, text, label, options, attributes, setAttributes
  *
  * @return {Element} Element to render.
  */
-export default function edit({ name, attributes, setAttributes }) {
+export default function edit({ name, attributes, setAttributes, clientId }) {
 	const defaultClassName = getBlockDefaultClassName(name);
 	const blockProps = useBlockProps({
-		className: attributes.horizontalBreakpoint,
+		className: classnames(attributes.horizontalBreakpoint, attributes.size),
 	});
 	const innerBlocksProps = useInnerBlocksProps(
 		{
@@ -154,6 +155,8 @@ export default function edit({ name, attributes, setAttributes }) {
 	];
 	const ButtonIcon = icons[attributes.buttonIcon];
 
+	setAttributes({ clientId });
+
 	return (
 		<>
 			<BlockControls group="other">
@@ -177,7 +180,7 @@ export default function edit({ name, attributes, setAttributes }) {
 
 			<div {...blockProps}>
 				<button
-					className={`${defaultClassName}-button ${attributes.size}`}
+					className={`${defaultClassName}-button`}
 				>
 					<ButtonIcon className={`${defaultClassName}-button-icon`} />
 					<span

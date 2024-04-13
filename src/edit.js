@@ -12,44 +12,54 @@ import {
 import { __ } from '@wordpress/i18n';
 import { check } from '@wordpress/icons';
 import classnames from 'classnames';
+import { useEffect } from '@wordpress/element';
 
 import icons from './icons';
 
 import './editor.scss';
 
-function OptionsDropdown({ name, text, label, options, attributes, setAttributes}) {
-	return <ToolbarDropdownMenu
-		label={label}
-		text={text}
-		icon={null}
-		popoverProps={{
-			position: 'bottom right',
-		}}
-	>
-		{({ onClose }) => (
-			<MenuGroup>
-				{options.map((entry) => {
-					const isSelected = attributes[name] === entry.value;
-					return (
-						<MenuItem
-							icon={isSelected && check}
-							isSelected={isSelected}
-							key={entry.value}
-							onClick={() => {
-								setAttributes({
-									[name]: entry.value,
-								});
-							}}
-							onClose={onClose}
-							role="menuitemradio"
-						>
-							{entry.name}
-						</MenuItem>
-					);
-				})}
-			</MenuGroup>
-		)}
-	</ToolbarDropdownMenu>;
+function OptionsDropdown({
+	name,
+	text,
+	label,
+	options,
+	attributes,
+	setAttributes,
+}) {
+	return (
+		<ToolbarDropdownMenu
+			label={label}
+			text={text}
+			icon={null}
+			popoverProps={{
+				position: 'bottom right',
+			}}
+		>
+			{({ onClose }) => (
+				<MenuGroup>
+					{options.map((entry) => {
+						const isSelected = attributes[name] === entry.value;
+						return (
+							<MenuItem
+								icon={isSelected && check}
+								isSelected={isSelected}
+								key={entry.value}
+								onClick={() => {
+									setAttributes({
+										[name]: entry.value,
+									});
+								}}
+								onClose={onClose}
+								role="menuitemradio"
+							>
+								{entry.name}
+							</MenuItem>
+						);
+					})}
+				</MenuGroup>
+			)}
+		</ToolbarDropdownMenu>
+	);
 }
 
 /**
@@ -155,14 +165,19 @@ export default function edit({ name, attributes, setAttributes, clientId }) {
 	];
 	const ButtonIcon = icons[attributes.buttonIcon];
 
-	setAttributes({ clientId });
+	useEffect(() => {
+		setAttributes({ clientId });
+	}, []);
 
 	return (
 		<>
 			<BlockControls group="other">
 				<OptionsDropdown
 					text={__('Size', 'wi-collapsible-social-links')}
-					label={__('Toggle button size', 'wi-collapsible-social-links')}
+					label={__(
+						'Toggle button size',
+						'wi-collapsible-social-links'
+					)}
 					name="size"
 					options={sizeOptions}
 					attributes={attributes}
@@ -170,7 +185,10 @@ export default function edit({ name, attributes, setAttributes, clientId }) {
 				/>
 				<OptionsDropdown
 					text={__('Horizontal @', 'wi-collapsible-social-links')}
-					label={__('Breakpoint for switching to horizontal popout', 'wi-collapsible-social-links')}
+					label={__(
+						'Breakpoint for switching to horizontal popout',
+						'wi-collapsible-social-links'
+					)}
 					name="horizontalBreakpoint"
 					options={horizontalBreakpointOptions}
 					attributes={attributes}
@@ -179,9 +197,7 @@ export default function edit({ name, attributes, setAttributes, clientId }) {
 			</BlockControls>
 
 			<div {...blockProps}>
-				<button
-					className={`${defaultClassName}-button`}
-				>
+				<button className={`${defaultClassName}-button`}>
 					<ButtonIcon className={`${defaultClassName}-button-icon`} />
 					<span
 						className={`${defaultClassName}-button-label screen-reader-text`}

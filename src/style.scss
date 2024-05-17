@@ -7,9 +7,7 @@
 	--wi-collapsible-social-links--content-position--right: auto;
 	--wi-collapsible-social-links--content-position--bottom: 0;
 	--wi-collapsible-social-links--content-position--left: 100%;
-	--wi-collapsible-social-links--content-space--horizontal: var(
-		--wi-collapsible-social-links--content-space
-	);
+	--wi-collapsible-social-links--content-space--horizontal: var(--wi-collapsible-social-links--content-space);
 	--wi-collapsible-social-links--content-space--vertical: 0;
 }
 
@@ -19,13 +17,9 @@
 	--wi-collapsible-social-links--content-position--right: 0;
 	--wi-collapsible-social-links--content-position--bottom: auto;
 	--wi-collapsible-social-links--content-position--left: 0;
-	--wi-collapsible-social-links--content-space: var(
-		--wp--preset--spacing--40
-	);
+	--wi-collapsible-social-links--content-space: var(--wp--preset--spacing--40);
 	--wi-collapsible-social-links--content-space--horizontal: 0;
-	--wi-collapsible-social-links--content-space--vertical: var(
-		--wi-collapsible-social-links--content-space
-	);
+	--wi-collapsible-social-links--content-space--vertical: var(--wi-collapsible-social-links--content-space);
 
 	position: relative;
 	width: fit-content;
@@ -34,43 +28,57 @@
 	border-radius: 9994px;
 
 	&.is-horizontal-at-mobile {
+
 		@include break-mobile() {
+
 			@include horizontal;
 		}
 	}
 
 	&.is-horizontal-at-small {
+
 		@include break-small() {
+
 			@include horizontal;
 		}
 	}
 
 	&.is-horizontal-at-medium {
+
 		@include break-medium() {
+
 			@include horizontal;
 		}
 	}
 
 	&.is-horizontal-at-large {
+
 		@include break-large() {
+
 			@include horizontal;
 		}
 	}
 
 	&.is-horizontal-at-xlarge {
+
 		@include break-xlarge() {
+
 			@include horizontal;
 		}
 	}
 
 	&.is-horizontal-at-huge {
+
 		@include break-huge() {
+
 			@include horizontal;
 		}
 	}
 
 	&.is-horizontal-at-xhuge {
+
 		@include break-huge() {
+
 			@include horizontal;
 		}
 	}
@@ -107,7 +115,7 @@
 	border-radius: 9994px;
 	line-height: 1;
 	transition: transform 0.1s ease;
-	fill: currentColor;
+	fill: currentcolor;
 	cursor: pointer;
 
 	@include reduce-motion(transition);
@@ -128,7 +136,8 @@
 	right: var(--wi-collapsible-social-links--content-position--right);
 	bottom: var(--wi-collapsible-social-links--content-position--bottom);
 	left: var(--wi-collapsible-social-links--content-position--left);
-	margin: var(--wi-collapsible-social-links--content-space--vertical)
+	margin:
+		var(--wi-collapsible-social-links--content-space--vertical)
 		var(--wi-collapsible-social-links--content-space--horizontal);
 	display: flex;
 	flex-direction: var(--wi-collapsible-social-links--orientation);

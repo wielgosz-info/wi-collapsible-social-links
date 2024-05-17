@@ -8,31 +8,37 @@ import icons from './icons';
 
 export default function save({ attributes }) {
 	const defaultClassName = getBlockDefaultClassName(metadata.name);
-	const ButtonIcon = icons[attributes.buttonIcon];
-	const key = attributes.anchor || attributes.clientId;
+	const { horizontalBreakpoint, size, buttonLabel, buttonIcon, anchor } =
+		attributes;
+	const ButtonIconComponent = icons[buttonIcon];
 
 	return (
 		<div
 			{...useBlockProps.save({
-				className: classnames(attributes.horizontalBreakpoint, attributes.size),
+				className: classnames(horizontalBreakpoint, size),
 			})}
 			data-wp-interactive="WICollapsibleSocialLinks"
 			data-wp-context='{ "isOpen": false }'
 		>
 			<button
-				className={`${defaultClassName}-button`}
+				className={`${defaultClassName}__button`}
 				data-wp-on--click="actions.toggle"
 				data-wp-bind--aria-expanded="context.isOpen"
-				aria-controls={`${key}-content`}
+				aria-controls={`${anchor}-content`}
 			>
-				<ButtonIcon className={`${defaultClassName}-button-icon`} />
-				<span className={`${defaultClassName}-button-label screen-reader-text`}>{attributes.buttonLabel || __('Social Links', 'wi-collapsible-social-links')}</span>
+				<ButtonIconComponent
+					className={`${defaultClassName}__button-icon`} />
+				<span
+					className={`${defaultClassName}__button-label screen-reader-text`}
+				>
+					{buttonLabel || __('Social Links', 'wi-collapsible-social-links')}
+				</span>
 			</button>
 			<nav
 				{...useInnerBlocksProps.save({
-					className: `${defaultClassName}-content`,
+					className: `${defaultClassName}__content`,
 				})}
-				id={`${key}-content`}
+				id={`${anchor}-content`}
 				data-wp-bind--hidden="!context.isOpen"
 			/>
 		</div>

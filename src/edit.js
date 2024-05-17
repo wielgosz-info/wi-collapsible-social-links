@@ -68,23 +68,30 @@ function OptionsDropdown({
  *
  * @see https://developer.wordpress.org/block-editor/reference-guides/block-api/block-edit-save/#edit
  *
+ * @param {Object}   props
+ * @param {string}   props.name
+ * @param {Object}   props.attributes
+ * @param {Function} props.setAttributes
+ * @param {string}   props.clientId
+ *
  * @return {Element} Element to render.
  */
-export default function edit({ name, attributes, setAttributes, clientId }) {
+export default function Edit({ name, attributes, setAttributes, clientId }) {
+	const { horizontalBreakpoint, size, anchor, buttonIcon } = attributes;
 	const defaultClassName = getBlockDefaultClassName(name);
 	const blockProps = useBlockProps({
-		className: classnames(attributes.horizontalBreakpoint, attributes.size),
+		className: classnames(horizontalBreakpoint, size),
 	});
 	const innerBlocksProps = useInnerBlocksProps(
 		{
-			className: `${defaultClassName}-content`,
+			className: `${defaultClassName}__content`,
 		},
 		{
 			template: [
 				[
 					'core/social-links',
 					{
-						size: attributes.size,
+						size,
 						style: {
 							spacing: {
 								margin: {
@@ -163,11 +170,13 @@ export default function edit({ name, attributes, setAttributes, clientId }) {
 			value: 'is-horizontal-at-xhuge',
 		},
 	];
-	const ButtonIcon = icons[attributes.buttonIcon];
+	const ButtonIconComponent = icons[buttonIcon];
 
 	useEffect(() => {
-		setAttributes({ clientId });
-	}, []);
+		if (!anchor) {
+			setAttributes({ anchor: clientId });
+		}
+	}, [clientId, setAttributes, anchor]);
 
 	return (
 		<>
@@ -197,10 +206,12 @@ export default function edit({ name, attributes, setAttributes, clientId }) {
 			</BlockControls>
 
 			<div {...blockProps}>
-				<button className={`${defaultClassName}-button`}>
-					<ButtonIcon className={`${defaultClassName}-button-icon`} />
+				<button className={`${defaultClassName}__button`}>
+					<ButtonIconComponent
+						className={`${defaultClassName}__button-icon`}
+					/>
 					<span
-						className={`${defaultClassName}-button-label screen-reader-text`}
+						className={`${defaultClassName}__button-label screen-reader-text`}
 					>
 						{attributes.buttonLabel}
 					</span>

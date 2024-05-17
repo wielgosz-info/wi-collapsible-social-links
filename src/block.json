@@ -21,9 +21,6 @@
 		"interactivity": true
 	},
 	"attributes": {
-		"clientId": {
-			"type": "string"
-		},
 		"buttonLabel": {
 			"type": "string",
 			"source": "text",

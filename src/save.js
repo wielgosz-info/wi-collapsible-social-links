@@ -27,11 +27,13 @@ export default function save({ attributes }) {
 				aria-controls={`${anchor}-content`}
 			>
 				<ButtonIconComponent
-					className={`${defaultClassName}__button-icon`} />
+					className={`${defaultClassName}__button-icon`}
+				/>
 				<span
 					className={`${defaultClassName}__button-label screen-reader-text`}
 				>
-					{buttonLabel || __('Social Links', 'wi-collapsible-social-links')}
+					{buttonLabel ||
+						__('Social Links', 'wi-collapsible-social-links')}
 				</span>
 			</button>
 			<nav
